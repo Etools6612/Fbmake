@@ -2,152 +2,126 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Viper Tool</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<title>Social Media Services</title>
 
 <style>
-*{
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg,#2b2e4a,#53354a);
+  color:#fff;
+  padding:20px;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #1f1c2c, #928dab);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+h1{
+  text-align:center;
+  margin-bottom:20px;
 }
 
-.container {
-    width: 100%;
-    max-width: 420px;
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(12px);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-    text-align: center;
+.service-box{
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:15px;
+  text-align:center;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
 }
 
-/* LOGO */
-.logo {
-    font-size: 34px;
-    font-weight: 700;
-    color: #ffffff;
-    letter-spacing: 1px;
-    margin-bottom: 5px;
+.facebook{ background:#1877f2; }
+.tiktok{ background:#000; }
+.instagram{
+  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
-.logo span {
-    color: #b388ff;
+.details{
+  display:none;
+  background:#fff;
+  color:#000;
+  border-radius:16px;
+  padding:15px;
+  margin-bottom:20px;
 }
 
-.subtitle {
-    color: #e0e0e0;
-    font-size: 14px;
-    margin-bottom: 25px;
+.item{
+  display:flex;
+  justify-content:space-between;
+  margin:8px 0;
 }
 
-/* BUTTONS */
-.btn {
-    width: 100%;
-    padding: 15px;
-    margin-bottom: 12px;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(135deg, #7b2ff7, #f107a3);
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn:hover {
-    transform: scale(1.04);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-/* INFO BOX */
-.box {
-    display: none;
-    margin-top: 25px;
-    padding: 20px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.9);
-    animation: fadeIn 0.4s ease;
-}
-
-@keyframes fadeIn {
-    from {opacity: 0; transform: translateY(10px);}
-    to {opacity: 1; transform: translateY(0);}
-}
-
-.box h2 {
-    margin: 0;
-    color: #333;
-}
-
-.price {
-    margin: 10px 0;
-    font-size: 26px;
-    font-weight: 700;
-    color: #27ae60;
-}
-
-/* FB BUTTON */
-.fb-link {
-    display: block;
-    margin-top: 12px;
-    padding: 12px;
-    background: #1877f2;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 10px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.fb-link:hover {
-    background: #145dbf;
+.order-btn{
+  display:block;
+  text-decoration:none;
+  background:#1877f2;
+  color:#fff;
+  padding:12px;
+  border-radius:12px;
+  text-align:center;
+  margin-top:15px;
+  font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<h1>Social Media Services</h1>
 
-    <div class="logo">Viper <span>Tool</span></div>
-    <div class="subtitle">Premium Rent Access</div>
+<!-- FACEBOOK -->
+<div class="service-box facebook" onclick="toggle('fb')">
+Facebook Services
+</div>
 
-    <button class="btn" onclick="showBox('1 Day Rent', '₱50')">1 Day Rent</button>
-    <button class="btn" onclick="showBox('5 Days Rent', '₱100')">5 Days Rent</button>
-    <button class="btn" onclick="showBox('10 Days Rent', '₱150')">10 Days Rent</button>
-    <button class="btn" onclick="showBox('15 Days Rent', '₱180')">15 Days Rent</button>
-    <button class="btn" onclick="showBox('1 Month Rent', '₱230')">1 Month Rent</button>
+<div class="details" id="fb">
+  <div class="item"><span>Page Followers</span><span>₱34 / 1000</span></div>
+  <div class="item"><span>Profile Followers</span><span>₱38 / 1000</span></div>
+  <div class="item"><span>Share Post</span><span>₱30 / 1000</span></div>
+  <div class="item"><span>Reaction Post</span><span>₱27 / 1000</span></div>
+  <div class="item"><span>Reels Views</span><span>₱30 / 1000</span></div>
+  <div class="item"><span>Video Views</span><span>₱35 / 1000</span></div>
+  <hr>
+  <div class="item"><strong>Content Monetization Package</strong><strong>₱2,500</strong></div>
 
-    <div class="box" id="infoBox">
-        <h2 id="rentTitle"></h2>
-        <div class="price" id="rentPrice"></div>
-        <a class="fb-link" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-            Message on Facebook
-        </a>
-    </div>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
+    Order Now
+  </a>
+</div>
 
+<!-- TIKTOK -->
+<div class="service-box tiktok" onclick="toggle('tt')">
+TikTok Services
+</div>
+
+<div class="details" id="tt">
+  <div class="item"><span>TikTok Followers</span><span>₱120 / 1000</span></div>
+  <div class="item"><span>TikTok Views</span><span>₱8 / 1000</span></div>
+  <div class="item"><span>TikTok Likes</span><span>₱29 / 1000</span></div>
+
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
+    Order Now
+  </a>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="service-box instagram" onclick="toggle('ig')">
+Instagram Services
+</div>
+
+<div class="details" id="ig">
+  <div class="item"><span>Instagram Followers</span><span>₱120</span></div>
+  <div class="item"><span>Instagram Views</span><span>₱8 / 1000</span></div>
+  <div class="item"><span>Instagram Likes</span><span>₱29 / 1000</span></div>
+
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
+    Order Now
+  </a>
 </div>
 
 <script>
-function showBox(title, price) {
-    document.getElementById("rentTitle").innerText = title;
-    document.getElementById("rentPrice").innerText = price;
-    document.getElementById("infoBox").style.display = "block";
+function toggle(id){
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === "block" ? "none" : "block";
 }
 </script>
 
