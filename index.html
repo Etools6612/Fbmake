@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Viper Tool</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h1 {
+        color: #4a6fa5;
+        margin-bottom: 30px;
+    }
+
+    .btn {
+        display: block;
+        width: 90%;
+        max-width: 320px;
+        margin: 12px auto;
+        padding: 15px;
+        font-size: 20px;
+        color: #fff;
+        background: #6a3dbb;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: #5a32a3;
+    }
+
+    .box {
+        display: none;
+        margin-top: 30px;
+        padding: 20px;
+        border-radius: 10px;
+        background: #f3f3f3;
+        max-width: 350px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .box h2 {
+        margin-bottom: 10px;
+    }
+
+    .price {
+        font-size: 22px;
+        font-weight: bold;
+        color: #27ae60;
+        margin-bottom: 15px;
+    }
+
+    .fb-link {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background: #1877f2;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+</style>
+</head>
+
+<body>
+
+<h1>Viper Tool</h1>
+
+<button class="btn" onclick="showBox('1 Day Rent', '₱50')">1 Day Rent</button>
+<button class="btn" onclick="showBox('5 Days Rent', '₱100')">5 Days Rent</button>
+<button class="btn" onclick="showBox('10 Days Rent', '₱150')">10 Days Rent</button>
+<button class="btn" onclick="showBox('15 Days Rent', '₱180')">15 Days Rent</button>
+<button class="btn" onclick="showBox('1 Month Rent', '₱230')">1 Month Rent</button>
+
+<div class="box" id="infoBox">
+    <h2 id="rentTitle"></h2>
+    <div class="price" id="rentPrice"></div>
+    <a class="fb-link" href="https://www.facebook.com/Kristinemaeal" target="_blank">
+        Message on Facebook
+    </a>
+</div>
+
+<script>
+function showBox(title, price) {
+    document.getElementById("rentTitle").innerText = title;
+    document.getElementById("rentPrice").innerText = price;
+    document.getElementById("infoBox").style.display = "block";
+}
+</script>
+
+</body>
+</html>
