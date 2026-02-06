@@ -6,26 +6,32 @@
 <title>Social Media Services</title>
 
 <style>
+/* ---------- BACKGROUND ---------- */
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg,#0f172a,#312e81);;
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+  background-size:cover;
+  background-position:center;
   color:#fff;
   padding:20px;
 }
 
+/* ---------- TITLE ---------- */
 h1{
   text-align:center;
   margin-bottom:25px;
   font-weight:800;
 }
 
-/* SERVICE BUTTON */
+/* ---------- SERVICE BUTTON (GLASS) ---------- */
 .service-box{
   padding:18px;
-  border-radius:18px;
+  border-radius:20px;
   margin-bottom:15px;
-  text-align:center;
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
@@ -33,33 +39,38 @@ h1{
   justify-content:center;
   align-items:center;
   gap:10px;
+
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
-.facebook{ background:#1877f2; }
-.tiktok{ background:#000; }
-.instagram{
-  background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
-}
+.facebook{ }
+.tiktok{ }
+.instagram{ }
 
 .service-box img{
   width:26px;
   height:26px;
 }
 
-/* DETAILS CARD */
+/* ---------- DETAILS (GLASS CARD) ---------- */
 .details{
   display:none;
-  background:#f5f7ff;
-  color:#000;
-  border-radius:22px;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  border-radius:24px;
   padding:20px;
   margin-bottom:25px;
+  border:1px solid rgba(255,255,255,0.25);
+  box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-/* PRICE BOX – SAME COLOR ALL */
+/* ---------- PRICE BOX ---------- */
 .price-box{
-  background:#e9edff;
-  border-radius:14px;
+  background: rgba(255,255,255,0.25);
+  border-radius:16px;
   padding:14px 16px;
   margin-bottom:10px;
   display:flex;
@@ -67,28 +78,28 @@ h1{
   align-items:center;
   font-size:15px;
   font-weight:600;
+  color:#000;
 }
 
 .price-box span:last-child{
-  color:#2563eb;
   font-weight:bold;
 }
 
-/* ORDER BUTTON */
+/* ---------- ORDER BUTTON ---------- */
 .order-btn{
   display:block;
-  background:#1877f2;
-  color:#fff;
+  background:#ffffff;
+  color:#000;
   text-decoration:none;
   padding:16px;
-  border-radius:16px;
+  border-radius:20px;
   text-align:center;
   margin-top:20px;
   font-weight:bold;
   font-size:16px;
 }
 
-/* NOTE */
+/* ---------- NOTE ---------- */
 .note{
   text-align:center;
   margin-top:25px;
@@ -103,7 +114,7 @@ h1{
 <h1>Social Media Services</h1>
 
 <!-- FACEBOOK -->
-<div class="service-box facebook" onclick="toggle('fb')">
+<div class="service-box" onclick="toggle('fb')">
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
   Facebook Services
 </div>
@@ -123,7 +134,7 @@ h1{
 </div>
 
 <!-- TIKTOK -->
-<div class="service-box tiktok" onclick="toggle('tt')">
+<div class="service-box" onclick="toggle('tt')">
   <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
   TikTok Services
 </div>
@@ -139,7 +150,7 @@ h1{
 </div>
 
 <!-- INSTAGRAM -->
-<div class="service-box instagram" onclick="toggle('ig')">
+<div class="service-box" onclick="toggle('ig')">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
   Instagram Services
 </div>
@@ -167,4 +178,3 @@ function toggle(id){
 
 </body>
 </html>
-
