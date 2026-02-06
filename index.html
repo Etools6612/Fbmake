@@ -11,8 +11,8 @@ body{
   font-family:Arial, sans-serif;
   min-height:100vh;
   background:
-    linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
-    url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+    linear-gradient(135deg, rgba(0,0,0,.75), rgba(0,0,0,.6)),
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
   background-size:cover;
   background-position:center;
   color:#fff;
@@ -21,14 +21,15 @@ body{
 
 h1{
   text-align:center;
-  margin-bottom:20px;
-  font-weight:800;
+  margin-bottom:25px;
+  font-weight:900;
+  letter-spacing:1px;
 }
 
-/* SERVICE HEADER */
+/* HEADER BOX */
 .service-box{
-  padding:18px;
-  border-radius:20px;
+  padding:18px 20px;
+  border-radius:22px;
   margin-bottom:15px;
   font-size:18px;
   font-weight:bold;
@@ -37,21 +38,22 @@ h1{
   justify-content:space-between;
   align-items:center;
   background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
 }
 
 /* DETAILS */
 .details{
   display:none;
   background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
   border-radius:22px;
   padding:20px;
   margin-bottom:25px;
 }
 
 .option{
-  background:rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.28);
   border-radius:14px;
   padding:14px;
   margin-bottom:12px;
@@ -60,16 +62,17 @@ h1{
 
 select,input{
   width:100%;
-  padding:10px;
+  padding:12px;
   margin-top:8px;
-  border-radius:10px;
+  border-radius:12px;
   border:none;
+  font-size:15px;
 }
 
 .total-box{
   background:#fff;
   color:#000;
-  border-radius:16px;
+  border-radius:18px;
   padding:16px;
   font-size:18px;
   font-weight:bold;
@@ -81,67 +84,145 @@ button{
   width:100%;
   padding:14px;
   border:none;
-  border-radius:16px;
+  border-radius:18px;
   margin-top:10px;
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
 }
 
+.calc-btn{
+  background:#111;
+  color:#fff;
+}
+
 .order-btn{
   background:#1877f2;
   color:#fff;
+}
+
+.small{
+  font-size:14px;
+  opacity:.85;
+  text-align:center;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Social Media Services</h1>
+<h1>🚀 SOCIAL MEDIA SERVICES</h1>
 
 <!-- FACEBOOK -->
 <div class="service-box" onclick="toggle('fb')">
-  Facebook Services <span>▼</span>
+  📘 FACEBOOK SERVICES <span>▼</span>
 </div>
 
 <div class="details" id="fb">
   <div class="option">
-    <label><b>Select Service</b></label>
+    <b>Select Service</b>
     <select id="fbService">
       <option value="0">-- Select --</option>
       <option value="34">Page Followers – ₱34 / 1000</option>
       <option value="38">Profile Followers – ₱38 / 1000</option>
+      <option value="20">Share Post – ₱20 / 1000</option>
+      <option value="30">Reaction Any – ₱30 / 1000</option>
+      <option value="28">Reel Views – ₱28 / 1000</option>
+      <option value="30">Video Views – ₱30 / 1000</option>
+      <option value="40">Ghost Comments – ₱40 / 1000</option>
+      <option value="350">🇵🇭 PH Reaction – ₱350 / 1000</option>
+      <option value="60">🇵🇭 PH Share – ₱60 / 1000</option>
+      <option value="50" data-unit="10">🇵🇭 PH Custom Comment – ₱50 / 10</option>
     </select>
   </div>
 
   <div class="option">
-    <label><b>Quantity</b></label>
-    <input type="number" id="fbQty" placeholder="Example: 3000">
+    <b>Quantity</b>
+    <input type="number" id="fbQty" placeholder="Example: 1000 or 10">
   </div>
 
-  <button onclick="calculateFB()">CALCULATE</button>
-
+  <button class="calc-btn" onclick="calculate('fb')">CALCULATE</button>
   <div class="total-box" id="fbTotal">TOTAL: ₱0</div>
 
-  <button class="order-btn" onclick="orderNow()">ORDER NOW</button>
+  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
 </div>
 
 <!-- TIKTOK -->
 <div class="service-box" onclick="toggle('tt')">
-  TikTok Services <span>▼</span>
+  🎵 TIKTOK SERVICES <span>▼</span>
 </div>
 
 <div class="details" id="tt">
-  <div class="total-box">Coming Soon</div>
+  <div class="option">
+    <b>Select Service</b>
+    <select id="ttService">
+      <option value="0">-- Select --</option>
+      <option value="170">Followers – ₱170 / 1000</option>
+      <option value="9">Views – ₱9 / 1000</option>
+      <option value="30">Likes – ₱30 / 1000</option>
+      <option value="35">Shares – ₱35 / 1000</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <b>Quantity</b>
+    <input type="number" id="ttQty" placeholder="Example: 5000">
+  </div>
+
+  <button class="calc-btn" onclick="calculate('tt')">CALCULATE</button>
+  <div class="total-box" id="ttTotal">TOTAL: ₱0</div>
+
+  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
 </div>
 
 <!-- INSTAGRAM -->
 <div class="service-box" onclick="toggle('ig')">
-  Instagram Services <span>▼</span>
+  📸 INSTAGRAM SERVICES <span>▼</span>
 </div>
 
 <div class="details" id="ig">
-  <div class="total-box">Coming Soon</div>
+  <div class="option">
+    <b>Select Service</b>
+    <select id="igService">
+      <option value="0">-- Select --</option>
+      <option value="150">Followers – ₱150 / 1000</option>
+      <option value="30">Likes – ₱30 / 1000</option>
+      <option value="29">Reel Views – ₱29 / 1000</option>
+    </select>
+  </div>
+
+  <div class="option">
+    <b>Quantity</b>
+    <input type="number" id="igQty">
+  </div>
+
+  <button class="calc-btn" onclick="calculate('ig')">CALCULATE</button>
+  <div class="total-box" id="igTotal">TOTAL: ₱0</div>
+
+  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
+</div>
+
+<!-- THREADS -->
+<div class="service-box">
+  🧵 THREADS SERVICES
+</div>
+<div class="details" style="display:block">
+  <div class="total-box">COMING SOON</div>
+</div>
+
+<!-- TOOLS -->
+<div class="service-box">
+  🛠 TOOLS & RENT
+</div>
+<div class="details" style="display:block">
+  <div class="option small">
+    FB MAKER RENT<br>
+    3D ₱80 | 5D ₱100 | 10D ₱150 | 15D ₱180<br>
+    1 MONTH ₱230 | LIFETIME ₱300
+  </div>
+  <div class="option small">
+    MASS REPORT TOOL – LIFETIME ₱150
+  </div>
 </div>
 
 <script>
@@ -150,22 +231,28 @@ function toggle(id){
   el.style.display = el.style.display === "block" ? "none" : "block";
 }
 
-function calculateFB(){
-  const price = Number(document.getElementById("fbService").value);
-  const qty = Number(document.getElementById("fbQty").value);
+function calculate(type){
+  const service = document.getElementById(type+"Service");
+  const qty = Number(document.getElementById(type+"Qty").value);
+  const price = Number(service.value);
 
   if(price === 0 || qty <= 0){
     alert("Select service and enter quantity");
     return;
   }
 
-  const total = (qty / 1000) * price;
-  document.getElementById("fbTotal").innerText =
+  let unit = service.options[service.selectedIndex].dataset.unit || 1000;
+  const total = (qty / unit) * price;
+
+  document.getElementById(type+"Total").innerText =
     "TOTAL: ₱" + total.toLocaleString();
 }
 
 function orderNow(){
-  window.open("https://www.facebook.com/Kristinemaeal","_blank");
+  window.open(
+    "https://www.facebook.com/profile.php?id=61587276074494",
+    "_blank"
+  );
 }
 </script>
 
