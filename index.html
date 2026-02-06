@@ -6,10 +6,9 @@
 <title>Social Media Services</title>
 
 <style>
-/* ---------- BACKGROUND ---------- */
 body{
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family:Arial, sans-serif;
   min-height:100vh;
   background:
     linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)),
@@ -20,14 +19,13 @@ body{
   padding:20px;
 }
 
-/* ---------- TITLE ---------- */
 h1{
   text-align:center;
   margin-bottom:25px;
   font-weight:800;
 }
 
-/* ---------- SERVICE BUTTON (GLASS) ---------- */
+/* SERVICE BUTTON */
 .service-box{
   padding:18px;
   border-radius:20px;
@@ -36,75 +34,69 @@ h1{
   font-weight:bold;
   cursor:pointer;
   display:flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items:center;
-  gap:10px;
 
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   border:1px solid rgba(255,255,255,0.25);
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
 }
 
-.facebook{ }
-.tiktok{ }
-.instagram{ }
-
-.service-box img{
-  width:26px;
-  height:26px;
+.arrow{
+  font-size:22px;
 }
 
-/* ---------- DETAILS (GLASS CARD) ---------- */
+/* DETAILS */
 .details{
   display:none;
   background: rgba(255,255,255,0.18);
   backdrop-filter: blur(12px);
-  border-radius:24px;
+  border-radius:22px;
   padding:20px;
   margin-bottom:25px;
-  border:1px solid rgba(255,255,255,0.25);
-  box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-/* ---------- PRICE BOX ---------- */
-.price-box{
-  background: rgba(255,255,255,0.25);
-  border-radius:16px;
-  padding:14px 16px;
-  margin-bottom:10px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* OPTION BOX */
+.option{
+  background:rgba(255,255,255,0.25);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+  color:#000;
+}
+
+.option select,
+.option input{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+  border-radius:10px;
+  border:none;
   font-size:15px;
-  font-weight:600;
-  color:#000;
 }
 
-.price-box span:last-child{
-  font-weight:bold;
-}
-
-/* ---------- ORDER BUTTON ---------- */
-.order-btn{
-  display:block;
-  background:#ffffff;
+/* TOTAL */
+.total-box{
+  background:#fff;
   color:#000;
-  text-decoration:none;
+  border-radius:16px;
   padding:16px;
-  border-radius:20px;
-  text-align:center;
-  margin-top:20px;
-  font-weight:bold;
-  font-size:16px;
-}
-
-/* ---------- NOTE ---------- */
-.note{
-  text-align:center;
-  margin-top:25px;
   font-size:18px;
   font-weight:bold;
+  text-align:center;
+  margin-top:15px;
+}
+
+/* BUTTON */
+.calc-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:16px;
+  margin-top:12px;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
 }
 </style>
 </head>
@@ -115,80 +107,51 @@ h1{
 
 <!-- FACEBOOK -->
 <div class="service-box" onclick="toggle('fb')">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
   Facebook Services
+  <span class="arrow">▼</span>
 </div>
 
 <div class="details" id="fb">
-  <div class="price-box"><span>Page Followers</span><span>â‚±34 / 1000</span></div>
-  <div class="price-box"><span>Profile Followers</span><span>â‚±38 / 1000</span></div>
-  <div class="price-box"><span>Share Post</span><span>â‚±30 / 1000</span></div>
-  <div class="price-box"><span>Reaction Post</span><span>â‚±27 / 1000</span></div>
-  <div class="price-box"><span>Reels Views</span><span>â‚±30 / 1000</span></div>
-  <div class="price-box"><span>Video Views</span><span>â‚±35 / 1000</span></div>
-  <div class="price-box"><strong>Content Monetization</strong><strong>â‚±2,500</strong></div>
 
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
+  <div class="option">
+    <label><b>Select Service</b></label>
+    <select id="fbService">
+      <option value="34">Page Followers – ₱34 / 1000</option>
+      <option value="38">Profile Followers – ₱38 / 1000</option>
+    </select>
+  </div>
 
-<!-- TIKTOK -->
-<div class="service-box" onclick="toggle('tt')">
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
-  TikTok Services
-</div>
+  <div class="option">
+    <label><b>Quantity</b> (example: 3000)</label>
+    <input type="number" id="fbQty" placeholder="Enter quantity">
+  </div>
 
-<div class="details" id="tt">
-  <div class="price-box"><span>Followers</span><span>â‚±120 / 1000</span></div>
-  <div class="price-box"><span>Views</span><span>â‚±8 / 1000</span></div>
-  <div class="price-box"><span>Likes</span><span>â‚±29 / 1000</span></div>
+  <button class="calc-btn" onclick="calculateFB()">= CALCULATE</button>
 
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
+  <div class="total-box" id="fbTotal">
+    TOTAL: ₱0
+  </div>
 
-<!-- INSTAGRAM -->
-<div class="service-box" onclick="toggle('ig')">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-  Instagram Services
-</div>
-
-<div class="details" id="ig">
-  <div class="price-box"><span>Followers</span><span>â‚±120</span></div>
-  <div class="price-box"><span>Views</span><span>â‚±8 / 1000</span></div>
-  <div class="price-box"><span>Likes</span><span>â‚±29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
-
-<!-- OTHER SERVICES -->
-<div class="service-box" onclick="toggle('ig')">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-  Instagram Services
-</div>
-
-<div class="details" id="ig">
-  <div class="price-box"><span>Followers</span><span>â‚±120</span></div>
-  <div class="price-box"><span>Views</span><span>â‚±8 / 1000</span></div>
-  <div class="price-box"><span>Likes</span><span>â‚±29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
-
-<div class="note">
-ðŸ”¥ Order now !!
 </div>
 
 <script>
 function toggle(id){
   const el = document.getElementById(id);
   el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+function calculateFB(){
+  const price = document.getElementById("fbService").value;
+  const qty = document.getElementById("fbQty").value;
+
+  if(qty <= 0){
+    alert("Please enter quantity");
+    return;
+  }
+
+  const total = (qty / 1000) * price;
+  document.getElementById("fbTotal").innerHTML =
+    "TOTAL: ₱" + total.toLocaleString();
 }
 </script>
 
