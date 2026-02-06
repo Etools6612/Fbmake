@@ -6,7 +6,6 @@
 <title>Social Media Services</title>
 
 <style>
-/* ---------- BACKGROUND ---------- */
 body{
   margin:0;
   font-family: Arial, sans-serif;
@@ -20,7 +19,6 @@ body{
   padding:20px;
 }
 
-/* ---------- TITLE ---------- */
 h1{
   text-align:center;
   margin-bottom:5px;
@@ -34,7 +32,6 @@ h1{
   margin-bottom:25px;
 }
 
-/* ---------- SERVICE BUTTON ---------- */
 .service-box{
   padding:18px;
   border-radius:20px;
@@ -46,7 +43,6 @@ h1{
   justify-content:center;
   align-items:center;
   gap:10px;
-
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
   border:1px solid rgba(255,255,255,0.25);
@@ -58,7 +54,6 @@ h1{
   height:26px;
 }
 
-/* ---------- DETAILS ---------- */
 .details{
   display:none;
   background: rgba(255,255,255,0.18);
@@ -70,7 +65,6 @@ h1{
   box-shadow:0 20px 40px rgba(0,0,0,.6);
 }
 
-/* ---------- PRICE BOX ---------- */
 .price-box{
   background: rgba(255,255,255,0.25);
   border-radius:16px;
@@ -84,10 +78,9 @@ h1{
   color:#000;
 }
 
-/* ---------- ORDER BUTTON ---------- */
 .order-btn{
   display:block;
-  background:#ffffff;
+  background:#fff;
   color:#000;
   text-decoration:none;
   padding:16px;
@@ -97,7 +90,14 @@ h1{
   font-weight:bold;
 }
 
-/* ---------- MUSIC BUTTON ---------- */
+.note{
+  text-align:center;
+  margin-top:25px;
+  font-size:18px;
+  font-weight:bold;
+}
+
+/* MUSIC BUTTON */
 .music-btn{
   position:fixed;
   bottom:20px;
@@ -117,7 +117,7 @@ h1{
 
 <body>
 
-<!-- 🎵 BACKGROUND MUSIC -->
+<!-- 🎵 MUSIC -->
 <audio id="bgMusic" loop>
   <source src="golden-hour-jvke.mp3" type="audio/mpeg">
 </audio>
@@ -132,7 +132,6 @@ h1{
   <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
   Facebook Services
 </div>
-
 <div class="details" id="fb">
   <div class="price-box"><span>Page Followers</span><span>₱34 / 1000</span></div>
   <div class="price-box"><span>Profile Followers</span><span>₱38 / 1000</span></div>
@@ -141,13 +140,48 @@ h1{
   <div class="price-box"><span>Reels Views</span><span>₱30 / 1000</span></div>
   <div class="price-box"><span>Video Views</span><span>₱35 / 1000</span></div>
   <div class="price-box"><strong>Content Monetization</strong><strong>₱2,500</strong></div>
-
-  <a class="order-btn" href="#" target="_blank">ORDER NOW</a>
+  <a class="order-btn" href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">ORDER NOW</a>
 </div>
 
-<div class="note" style="text-align:center;font-weight:bold;">
-🔥 Order now !!
+<!-- FB MAKER -->
+<div class="service-box" onclick="toggle('maker')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
+  FB Maker Rent Services
 </div>
+<div class="details" id="maker">
+  <div class="price-box"><span>1 Day</span><span>₱50</span></div>
+  <div class="price-box"><span>5 Days</span><span>₱100</span></div>
+  <div class="price-box"><span>1 Week</span><span>₱120</span></div>
+  <div class="price-box"><span>10 Days</span><span>₱130</span></div>
+  <div class="price-box"><span>1 Month</span><span>₱200</span></div>
+  <a class="order-btn" href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">JUST PM</a>
+</div>
+
+<!-- TIKTOK -->
+<div class="service-box" onclick="toggle('tt')">
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
+  TikTok Services
+</div>
+<div class="details" id="tt">
+  <div class="price-box"><span>Followers</span><span>₱120 / 1000</span></div>
+  <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
+  <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">ORDER NOW</a>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="service-box" onclick="toggle('ig')">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+  Instagram Services
+</div>
+<div class="details" id="ig">
+  <div class="price-box"><span>Followers</span><span>₱120</span></div>
+  <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
+  <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">ORDER NOW</a>
+</div>
+
+<div class="note">🔥 Order now !!</div>
 
 <script>
 function toggle(id){
@@ -156,15 +190,24 @@ function toggle(id){
 }
 
 let playing = false;
-function toggleMusic(){
-  const music = document.getElementById("bgMusic");
+const music = document.getElementById("bgMusic");
+
+// auto play after first tap anywhere
+document.addEventListener("click", () => {
   if(!playing){
     music.volume = 0.3;
-    music.play();
+    music.play().catch(()=>{});
     playing = true;
-  }else{
+  }
+}, { once:true });
+
+function toggleMusic(){
+  if(playing){
     music.pause();
     playing = false;
+  }else{
+    music.play();
+    playing = true;
   }
 }
 </script>
