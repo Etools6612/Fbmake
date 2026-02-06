@@ -21,11 +21,11 @@ body{
 
 h1{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:20px;
   font-weight:800;
 }
 
-/* SERVICE BUTTON */
+/* SERVICE HEADER */
 .service-box{
   padding:18px;
   border-radius:20px;
@@ -36,14 +36,8 @@ h1{
   display:flex;
   justify-content:space-between;
   align-items:center;
-
   background: rgba(255,255,255,0.15);
   backdrop-filter: blur(10px);
-  border:1px solid rgba(255,255,255,0.25);
-}
-
-.arrow{
-  font-size:22px;
 }
 
 /* DETAILS */
@@ -56,7 +50,6 @@ h1{
   margin-bottom:25px;
 }
 
-/* OPTION BOX */
 .option{
   background:rgba(255,255,255,0.25);
   border-radius:14px;
@@ -65,17 +58,14 @@ h1{
   color:#000;
 }
 
-.option select,
-.option input{
+select,input{
   width:100%;
   padding:10px;
   margin-top:8px;
   border-radius:10px;
   border:none;
-  font-size:15px;
 }
 
-/* TOTAL */
 .total-box{
   background:#fff;
   color:#000;
@@ -87,16 +77,20 @@ h1{
   margin-top:15px;
 }
 
-/* BUTTON */
-.calc-btn{
+button{
   width:100%;
   padding:14px;
   border:none;
   border-radius:16px;
-  margin-top:12px;
+  margin-top:10px;
   font-size:16px;
   font-weight:bold;
   cursor:pointer;
+}
+
+.order-btn{
+  background:#1877f2;
+  color:#fff;
 }
 </style>
 </head>
@@ -107,31 +101,47 @@ h1{
 
 <!-- FACEBOOK -->
 <div class="service-box" onclick="toggle('fb')">
-  Facebook Services
-  <span class="arrow">▼</span>
+  Facebook Services <span>▼</span>
 </div>
 
 <div class="details" id="fb">
-
   <div class="option">
     <label><b>Select Service</b></label>
     <select id="fbService">
+      <option value="0">-- Select --</option>
       <option value="34">Page Followers – ₱34 / 1000</option>
       <option value="38">Profile Followers – ₱38 / 1000</option>
     </select>
   </div>
 
   <div class="option">
-    <label><b>Quantity</b> (example: 3000)</label>
-    <input type="number" id="fbQty" placeholder="Enter quantity">
+    <label><b>Quantity</b></label>
+    <input type="number" id="fbQty" placeholder="Example: 3000">
   </div>
 
-  <button class="calc-btn" onclick="calculateFB()">= CALCULATE</button>
+  <button onclick="calculateFB()">CALCULATE</button>
 
-  <div class="total-box" id="fbTotal">
-    TOTAL: ₱0
-  </div>
+  <div class="total-box" id="fbTotal">TOTAL: ₱0</div>
 
+  <button class="order-btn" onclick="orderNow()">ORDER NOW</button>
+</div>
+
+<!-- TIKTOK -->
+<div class="service-box" onclick="toggle('tt')">
+  TikTok Services <span>▼</span>
+</div>
+
+<div class="details" id="tt">
+  <div class="total-box">Coming Soon</div>
+</div>
+
+<!-- INSTAGRAM -->
+<div class="service-box" onclick="toggle('ig')">
+  Instagram Services <span>▼</span>
+</div>
+
+<div class="details" id="ig">
+  <div class="total-box">Coming Soon</div>
 </div>
 
 <script>
@@ -141,17 +151,21 @@ function toggle(id){
 }
 
 function calculateFB(){
-  const price = document.getElementById("fbService").value;
-  const qty = document.getElementById("fbQty").value;
+  const price = Number(document.getElementById("fbService").value);
+  const qty = Number(document.getElementById("fbQty").value);
 
-  if(qty <= 0){
-    alert("Please enter quantity");
+  if(price === 0 || qty <= 0){
+    alert("Select service and enter quantity");
     return;
   }
 
   const total = (qty / 1000) * price;
-  document.getElementById("fbTotal").innerHTML =
+  document.getElementById("fbTotal").innerText =
     "TOTAL: ₱" + total.toLocaleString();
+}
+
+function orderNow(){
+  window.open("https://www.facebook.com/Kristinemaeal","_blank");
 }
 </script>
 
