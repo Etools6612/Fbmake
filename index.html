@@ -6,11 +6,10 @@
 <title>Social Media Services</title>
 
 <style>
-/* ---------- GLOBAL ---------- */
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#2b5cff,#7b2cff);
+  background: linear-gradient(180deg,#4f6bff,#6a3bff);
   color:#fff;
   padding:20px;
 }
@@ -18,10 +17,10 @@ body{
 h1{
   text-align:center;
   margin-bottom:25px;
-  letter-spacing:1px;
+  font-weight:800;
 }
 
-/* ---------- SERVICE MAIN BOX ---------- */
+/* SERVICE BUTTON */
 .service-box{
   padding:18px;
   border-radius:18px;
@@ -30,7 +29,10 @@ h1{
   font-size:18px;
   font-weight:bold;
   cursor:pointer;
-  box-shadow:0 10px 25px rgba(0,0,0,.3);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
 }
 
 .facebook{ background:#1877f2; }
@@ -39,28 +41,26 @@ h1{
   background: linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
-/* ---------- DETAILS ---------- */
+.service-box img{
+  width:26px;
+  height:26px;
+}
+
+/* DETAILS CARD */
 .details{
   display:none;
-  background:rgba(255,255,255,0.95);
+  background:#f5f7ff;
   color:#000;
-  border-radius:18px;
-  padding:18px;
+  border-radius:22px;
+  padding:20px;
   margin-bottom:25px;
-  box-shadow:0 15px 30px rgba(0,0,0,.4);
 }
 
-.details img{
-  width:100%;
-  border-radius:14px;
-  margin-bottom:15px;
-}
-
-/* ---------- PRICE BOX ---------- */
+/* PRICE BOX – SAME COLOR ALL */
 .price-box{
-  background:#f3f4f6;
+  background:#e9edff;
   border-radius:14px;
-  padding:12px 15px;
+  padding:14px 16px;
   margin-bottom:10px;
   display:flex;
   justify-content:space-between;
@@ -70,22 +70,30 @@ h1{
 }
 
 .price-box span:last-child{
-  color:#1877f2;
+  color:#2563eb;
   font-weight:bold;
 }
 
-/* ---------- ORDER BUTTON ---------- */
+/* ORDER BUTTON */
 .order-btn{
   display:block;
-  text-decoration:none;
   background:#1877f2;
   color:#fff;
-  padding:14px;
-  border-radius:14px;
+  text-decoration:none;
+  padding:16px;
+  border-radius:16px;
   text-align:center;
-  margin-top:18px;
+  margin-top:20px;
   font-weight:bold;
-  letter-spacing:1px;
+  font-size:16px;
+}
+
+/* NOTE */
+.note{
+  text-align:center;
+  margin-top:25px;
+  font-size:18px;
+  font-weight:bold;
 }
 </style>
 </head>
@@ -96,23 +104,18 @@ h1{
 
 <!-- FACEBOOK -->
 <div class="service-box facebook" onclick="toggle('fb')">
-Facebook Services
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
+  Facebook Services
 </div>
 
 <div class="details" id="fb">
-  <img src="https://via.placeholder.com/500x250.png?text=Facebook+Service">
-
   <div class="price-box"><span>Page Followers</span><span>₱34 / 1000</span></div>
   <div class="price-box"><span>Profile Followers</span><span>₱38 / 1000</span></div>
   <div class="price-box"><span>Share Post</span><span>₱30 / 1000</span></div>
   <div class="price-box"><span>Reaction Post</span><span>₱27 / 1000</span></div>
   <div class="price-box"><span>Reels Views</span><span>₱30 / 1000</span></div>
   <div class="price-box"><span>Video Views</span><span>₱35 / 1000</span></div>
-
-  <div class="price-box" style="background:#e0e7ff;">
-    <strong>Content Monetization</strong>
-    <strong>₱2,500</strong>
-  </div>
+  <div class="price-box"><strong>Content Monetization</strong><strong>₱2,500</strong></div>
 
   <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
     ORDER NOW
@@ -121,12 +124,11 @@ Facebook Services
 
 <!-- TIKTOK -->
 <div class="service-box tiktok" onclick="toggle('tt')">
-TikTok Services
+  <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
+  TikTok Services
 </div>
 
 <div class="details" id="tt">
-  <img src="https://via.placeholder.com/500x250.png?text=TikTok+Service">
-
   <div class="price-box"><span>Followers</span><span>₱120 / 1000</span></div>
   <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
   <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
@@ -138,12 +140,11 @@ TikTok Services
 
 <!-- INSTAGRAM -->
 <div class="service-box instagram" onclick="toggle('ig')">
-Instagram Services
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
+  Instagram Services
 </div>
 
 <div class="details" id="ig">
-  <img src="https://via.placeholder.com/500x250.png?text=Instagram+Service">
-
   <div class="price-box"><span>Followers</span><span>₱120</span></div>
   <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
   <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
@@ -151,6 +152,10 @@ Instagram Services
   <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
     ORDER NOW
   </a>
+</div>
+
+<div class="note">
+🔥 Order now !!
 </div>
 
 <script>
