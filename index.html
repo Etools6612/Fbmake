@@ -23,11 +23,18 @@ body{
 /* ---------- TITLE ---------- */
 h1{
   text-align:center;
-  margin-bottom:25px;
+  margin-bottom:5px;
   font-weight:800;
 }
 
-/* ---------- SERVICE BUTTON (GLASS) ---------- */
+.music-title{
+  text-align:center;
+  font-size:14px;
+  opacity:0.9;
+  margin-bottom:25px;
+}
+
+/* ---------- SERVICE BUTTON ---------- */
 .service-box{
   padding:18px;
   border-radius:20px;
@@ -51,7 +58,7 @@ h1{
   height:26px;
 }
 
-/* ---------- DETAILS (GLASS CARD) ---------- */
+/* ---------- DETAILS ---------- */
 .details{
   display:none;
   background: rgba(255,255,255,0.18);
@@ -77,10 +84,6 @@ h1{
   color:#000;
 }
 
-.price-box span:last-child{
-  font-weight:bold;
-}
-
 /* ---------- ORDER BUTTON ---------- */
 .order-btn{
   display:block;
@@ -92,22 +95,37 @@ h1{
   text-align:center;
   margin-top:20px;
   font-weight:bold;
-  font-size:16px;
 }
 
-/* ---------- NOTE ---------- */
-.note{
-  text-align:center;
-  margin-top:25px;
-  font-size:18px;
-  font-weight:bold;
+/* ---------- MUSIC BUTTON ---------- */
+.music-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:rgba(255,255,255,0.9);
+  color:#000;
+  border:none;
+  border-radius:50%;
+  width:55px;
+  height:55px;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
 }
 </style>
 </head>
 
 <body>
 
+<!-- 🎵 BACKGROUND MUSIC -->
+<audio id="bgMusic" loop>
+  <source src="golden-hour-jvke.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎵</button>
+
 <h1>Social Media Services</h1>
+<div class="music-title">🎶 Golden Hour – JVKE</div>
 
 <!-- FACEBOOK -->
 <div class="service-box" onclick="toggle('fb')">
@@ -124,62 +142,10 @@ h1{
   <div class="price-box"><span>Video Views</span><span>₱35 / 1000</span></div>
   <div class="price-box"><strong>Content Monetization</strong><strong>₱2,500</strong></div>
 
-  <a class="order-btn" href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-    ORDER NOW
-  </a>
+  <a class="order-btn" href="#" target="_blank">ORDER NOW</a>
 </div>
 
-<!-- FB MAKER RENT -->
-<div class="service-box" onclick="toggle('maker')">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg">
-  FB Maker Rent Services
-</div>
-
-<div class="details" id="maker">
-  <div class="price-box"><span>1 Day</span><span>₱50</span></div>
-  <div class="price-box"><span>5 Days</span><span>₱100</span></div>
-  <div class="price-box"><span>1 Week</span><span>₱120</span></div>
-  <div class="price-box"><span>10 Days</span><span>₱130</span></div>
-  <div class="price-box"><span>1 Month</span><span>₱200</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-    JUST PM
-  </a>
-</div>
-
-<!-- TIKTOK -->
-<div class="service-box" onclick="toggle('tt')">
-  <img src="https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg">
-  TikTok Services
-</div>
-
-<div class="details" id="tt">
-  <div class="price-box"><span>Followers</span><span>₱120 / 1000</span></div>
-  <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
-  <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
-
-<!-- INSTAGRAM -->
-<div class="service-box" onclick="toggle('ig')">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-  Instagram Services
-</div>
-
-<div class="details" id="ig">
-  <div class="price-box"><span>Followers</span><span>₱120</span></div>
-  <div class="price-box"><span>Views</span><span>₱8 / 1000</span></div>
-  <div class="price-box"><span>Likes</span><span>₱29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    ORDER NOW
-  </a>
-</div>
-
-<div class="note">
+<div class="note" style="text-align:center;font-weight:bold;">
 🔥 Order now !!
 </div>
 
@@ -187,6 +153,19 @@ h1{
 function toggle(id){
   const el = document.getElementById(id);
   el.style.display = el.style.display === "block" ? "none" : "block";
+}
+
+let playing = false;
+function toggleMusic(){
+  const music = document.getElementById("bgMusic");
+  if(!playing){
+    music.volume = 0.3;
+    music.play();
+    playing = true;
+  }else{
+    music.pause();
+    playing = false;
+  }
 }
 </script>
 
