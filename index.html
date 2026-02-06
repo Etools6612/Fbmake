@@ -6,19 +6,97 @@
 <title>Social Media Services</title>
 
 <style>
+/* ---------- GLOBAL ---------- */
 body{
   margin:0;
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg,#2b2e4a,#53354a);
+  background: radial-gradient(circle at top,#0f3,#020);
   color:#fff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hidden{ display:none; }
+
+/* ---------- LOGIN ---------- */
+.login-box{
+  width:100%;
+  max-width:360px;
+  background:rgba(0,0,0,0.7);
+  border-radius:20px;
+  padding:25px;
+  box-shadow:0 0 25px #0f0;
+}
+
+.login-box h1{
+  text-align:center;
+  color:#00ff55;
+  margin-bottom:25px;
+  letter-spacing:2px;
+}
+
+.input{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border:none;
+  border-radius:12px;
+  background:#111;
+  color:#fff;
+  font-size:16px;
+}
+
+.input:focus{
+  outline:2px solid #00ff55;
+}
+
+.login-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:#00ff55;
+  color:#000;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.login-btn:hover{
+  background:#00cc44;
+}
+
+.login-links{
+  display:flex;
+  justify-content:space-between;
+  margin-top:12px;
+  font-size:14px;
+}
+
+.login-links span{
+  color:#aaa;
+}
+
+.login-links a{
+  color:#00ff55;
+  text-decoration:none;
+}
+
+/* ---------- MAIN ---------- */
+.main{
+  width:100%;
+  max-width:420px;
   padding:20px;
 }
 
-h1{
+h2{
   text-align:center;
   margin-bottom:20px;
 }
 
+/* SERVICE BOX */
 .service-box{
   padding:18px;
   border-radius:16px;
@@ -72,66 +150,80 @@ h1{
 
 <body>
 
-<h1>Social Media Services</h1>
+<!-- ================= LOGIN ================= -->
+<div class="login-box" id="loginBox">
+  <h1>SIGN IN</h1>
 
-<!-- FACEBOOK -->
+  <input class="input" id="user" placeholder="Username">
+  <input class="input" id="pass" type="password" placeholder="Password">
+
+  <button class="login-btn" onclick="login()">LOGIN</button>
+
+  <div class="login-links">
+    <span>Forgot Password</span>
+    <a href="#">Signup</a>
+  </div>
+</div>
+
+<!-- ================= MAIN ================= -->
+<div class="main hidden" id="mainBox">
+
+<h2>Social Media Services</h2>
+
 <div class="service-box facebook" onclick="toggle('fb')">
 Facebook Services
 </div>
 
 <div class="details" id="fb">
-  <!-- Image for Facebook Services -->
-  <img src="https://via.placeholder.com/500x250.png?text=Facebook+Service" alt="Facebook Service">
-
-  <div class="item"><span>Page Followers</span><span>₱100 / 1000</span></div>
+  <img src="https://via.placeholder.com/500x250.png?text=Facebook+Service">
+  <div class="item"><span>Page Followers</span><span>₱34 / 1000</span></div>
   <div class="item"><span>Profile Followers</span><span>₱38 / 1000</span></div>
-  <div class="item"><span>Share Post</span><span>₱30 / 1000</span></div>
-  <div class="item"><span>Reaction Post</span><span>₱27 / 1000</span></div>
   <div class="item"><span>Reels Views</span><span>₱30 / 1000</span></div>
-  <div class="item"><span>Video Views</span><span>₱35 / 1000</span></div>
-  <hr>
-  <div class="item"><strong>Content Monetization Package</strong><strong>₱2,500</strong></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    Order Now
-  </a>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">Order Now</a>
 </div>
 
-<!-- TIKTOK -->
 <div class="service-box tiktok" onclick="toggle('tt')">
 TikTok Services
 </div>
 
 <div class="details" id="tt">
-  <img src="https://via.placeholder.com/500x250.png?text=TikTok+Service" alt="TikTok Service">
-
-  <div class="item"><span>TikTok Followers</span><span>₱120 / 1000</span></div>
-  <div class="item"><span>TikTok Views</span><span>₱8 / 1000</span></div>
-  <div class="item"><span>TikTok Likes</span><span>₱29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    Order Now
-  </a>
+  <img src="https://via.placeholder.com/500x250.png?text=TikTok+Service">
+  <div class="item"><span>Followers</span><span>₱120 / 1000</span></div>
+  <div class="item"><span>Views</span><span>₱8 / 1000</span></div>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">Order Now</a>
 </div>
 
-<!-- INSTAGRAM -->
 <div class="service-box instagram" onclick="toggle('ig')">
 Instagram Services
 </div>
 
 <div class="details" id="ig">
-  <img src="https://via.placeholder.com/500x250.png?text=Instagram+Service" alt="Instagram Service">
+  <img src="https://via.placeholder.com/500x250.png?text=Instagram+Service">
+  <div class="item"><span>Followers</span><span>₱120</span></div>
+  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">Order Now</a>
+</div>
 
-  <div class="item"><span>Instagram Followers</span><span>₱120</span></div>
-  <div class="item"><span>Instagram Views</span><span>₱8 / 1000</span></div>
-  <div class="item"><span>Instagram Likes</span><span>₱29 / 1000</span></div>
-
-  <a class="order-btn" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-    Order Now
-  </a>
 </div>
 
 <script>
+function login(){
+  const u = document.getElementById("user").value;
+  const p = document.getElementById("pass").value;
+
+  if(u === "" || p === ""){
+    alert("Please enter username and password");
+    return;
+  }
+
+  // demo validation
+  if(u === "admin" && p === "1234"){
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("mainBox").classList.remove("hidden");
+  }else{
+    alert("Invalid login");
+  }
+}
+
 function toggle(id){
   const el = document.getElementById(id);
   el.style.display = el.style.display === "block" ? "none" : "block";
