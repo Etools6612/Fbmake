@@ -5,87 +5,142 @@
 <title>Viper Tool</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #ffffff;
-        text-align: center;
-        padding: 20px;
-    }
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    h1 {
-        color: #4a6fa5;
-        margin-bottom: 30px;
-    }
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-    .btn {
-        display: block;
-        width: 90%;
-        max-width: 320px;
-        margin: 12px auto;
-        padding: 15px;
-        font-size: 20px;
-        color: #fff;
-        background: #6a3dbb;
-        border: none;
-        border-radius: 8px;
-        cursor: pointer;
-    }
+.container {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    text-align: center;
+}
 
-    .btn:hover {
-        background: #5a32a3;
-    }
+/* LOGO */
+.logo {
+    font-size: 34px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
 
-    .box {
-        display: none;
-        margin-top: 30px;
-        padding: 20px;
-        border-radius: 10px;
-        background: #f3f3f3;
-        max-width: 350px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.logo span {
+    color: #b388ff;
+}
 
-    .box h2 {
-        margin-bottom: 10px;
-    }
+.subtitle {
+    color: #e0e0e0;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
 
-    .price {
-        font-size: 22px;
-        font-weight: bold;
-        color: #27ae60;
-        margin-bottom: 15px;
-    }
+/* BUTTONS */
+.btn {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-    .fb-link {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 15px;
-        background: #1877f2;
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-    }
+.btn:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* INFO BOX */
+.box {
+    display: none;
+    margin-top: 25px;
+    padding: 20px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.9);
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(10px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.box h2 {
+    margin: 0;
+    color: #333;
+}
+
+.price {
+    margin: 10px 0;
+    font-size: 26px;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+/* FB BUTTON */
+.fb-link {
+    display: block;
+    margin-top: 12px;
+    padding: 12px;
+    background: #1877f2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.fb-link:hover {
+    background: #145dbf;
+}
 </style>
 </head>
 
 <body>
 
-<h1>Viper Tool</h1>
+<div class="container">
 
-<button class="btn" onclick="showBox('1 Day Rent', '₱50')">1 Day Rent</button>
-<button class="btn" onclick="showBox('5 Days Rent', '₱100')">5 Days Rent</button>
-<button class="btn" onclick="showBox('10 Days Rent', '₱150')">10 Days Rent</button>
-<button class="btn" onclick="showBox('15 Days Rent', '₱180')">15 Days Rent</button>
-<button class="btn" onclick="showBox('1 Month Rent', '₱230')">1 Month Rent</button>
+    <div class="logo">Viper <span>Tool</span></div>
+    <div class="subtitle">Premium Rent Access</div>
 
-<div class="box" id="infoBox">
-    <h2 id="rentTitle"></h2>
-    <div class="price" id="rentPrice"></div>
-    <a class="fb-link" href="https://www.facebook.com/Kristinemaeal" target="_blank">
-        Message on Facebook
-    </a>
+    <button class="btn" onclick="showBox('1 Day Rent', '₱50')">1 Day Rent</button>
+    <button class="btn" onclick="showBox('5 Days Rent', '₱100')">5 Days Rent</button>
+    <button class="btn" onclick="showBox('10 Days Rent', '₱150')">10 Days Rent</button>
+    <button class="btn" onclick="showBox('15 Days Rent', '₱180')">15 Days Rent</button>
+    <button class="btn" onclick="showBox('1 Month Rent', '₱230')">1 Month Rent</button>
+
+    <div class="box" id="infoBox">
+        <h2 id="rentTitle"></h2>
+        <div class="price" id="rentPrice"></div>
+        <a class="fb-link" href="https://www.facebook.com/Kristinemaeal" target="_blank">
+            Message on Facebook
+        </a>
+    </div>
+
 </div>
 
 <script>
