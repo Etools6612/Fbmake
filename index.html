@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FB Maker Tool</title>
+  <title>FB Maker TOOL V1 RENTING</title>
+
   <style>
     body {
       margin: 0;
@@ -15,7 +16,7 @@
     .container {
       max-width: 420px;
       margin: auto;
-      padding: 20px;
+      padding: 25px 15px;
     }
 
     h1 {
@@ -25,9 +26,9 @@
 
     .card {
       background: rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 15px;
-      margin-bottom: 15px;
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
     .btn {
@@ -35,7 +36,7 @@
       padding: 14px;
       margin: 8px 0;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
@@ -54,59 +55,107 @@
     .price-box {
       display: none;
       background: rgba(0,0,0,0.5);
-      padding: 12px;
-      border-radius: 12px;
-      margin-top: 10px;
+      padding: 15px;
+      border-radius: 14px;
+      margin-top: 12px;
       text-align: center;
+      font-size: 15px;
     }
 
     .order {
-      margin-top: 10px;
+      margin-top: 12px;
       background: #00c853;
       color: #000;
+      font-size: 17px;
     }
 
     a {
       text-decoration: none;
     }
+
+    /* 🔥 CLICK HERE ANIMATION */
+    @keyframes clickPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(30,144,255,0.7);
+      }
+      50% {
+        transform: scale(1.06);
+        box-shadow: 0 0 30px rgba(30,144,255,1);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(30,144,255,0.7);
+      }
+    }
+
+    .click-here {
+      position: relative;
+      animation: clickPulse 1.5s infinite;
+    }
+
+    .click-here::after {
+      content: "⬇ CLICK HERE ⬇";
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      color: #00e5ff;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.2; }
+      100% { opacity: 1; }
+    }
   </style>
 </head>
+
 <body>
 
   <div class="container">
-    <h1>🚀 FB Maker TOOL V1 RENTING</h1>
+    <h1>🚀 FB Maker TOOL V1<br>RENTING</h1>
 
     <div class="card">
-      <button class="btn btn-main" onclick="toggleOptions()">FB Maker TOOL V1 RENTING</button>
 
+      <!-- MAIN BUTTON -->
+      <button class="btn btn-main click-here" onclick="toggleOptions()">
+        FB Maker TOOL V1 RENTING
+      </button>
+
+      <!-- OPTIONS -->
       <div id="options" style="display:none;">
-        <button class="btn btn-option" onclick="showPrice('price3')">3 Days</button>
-        <button class="btn btn-option" onclick="showPrice('price7')">7 Days ₱100</button>
-        <button class="btn btn-option" onclick="showPrice('price14')">2 Weeks ₱190</button>
-        <button class="btn btn-option" onclick="showPrice('price30')">1 Month ₱220</button>
 
-        <div id="price3" class="price-box">
-          ₱50 — 3 days renting tool price
+        <button class="btn btn-option" onclick="showPrice('p3')">3 Days</button>
+        <button class="btn btn-option" onclick="showPrice('p7')">7 Days ₱100</button>
+        <button class="btn btn-option" onclick="showPrice('p14')">2 Weeks ₱190</button>
+        <button class="btn btn-option" onclick="showPrice('p30')">1 Month ₱220</button>
+
+        <!-- PRICES -->
+        <div id="p3" class="price-box">
+          ₱50 — 3 days renting tool
           <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
             <button class="btn order">ORDER NOW!!!</button>
           </a>
         </div>
 
-        <div id="price7" class="price-box">
+        <div id="p7" class="price-box">
           ₱100 — 7 days renting tool
           <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
             <button class="btn order">ORDER NOW!!!</button>
           </a>
         </div>
 
-        <div id="price14" class="price-box">
+        <div id="p14" class="price-box">
           ₱190 — 2 weeks renting tool
           <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
             <button class="btn order">ORDER NOW!!!</button>
           </a>
         </div>
 
-        <div id="price30" class="price-box">
+        <div id="p30" class="price-box">
           ₱220 — 1 month renting tool
           <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
             <button class="btn order">ORDER NOW!!!</button>
