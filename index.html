@@ -1,260 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Media Services</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FB Maker Tool</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, #0b1d3a, #000);
+      color: #fff;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  min-height:100vh;
-  background:
-    linear-gradient(135deg, rgba(0,0,0,.75), rgba(0,0,0,.6)),
-    url("https://images.unsplash.com/photo-1519681393784-d120267933ba");
-  background-size:cover;
-  background-position:center;
-  color:#fff;
-  padding:20px;
-}
+    .container {
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
+    }
 
-h1{
-  text-align:center;
-  margin-bottom:25px;
-  font-weight:900;
-  letter-spacing:1px;
-}
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-/* HEADER BOX */
-.service-box{
-  padding:18px 20px;
-  border-radius:22px;
-  margin-bottom:15px;
-  font-size:18px;
-  font-weight:bold;
-  cursor:pointer;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background: rgba(255,255,255,0.15);
-  backdrop-filter: blur(12px);
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
+    .card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
 
-/* DETAILS */
-.details{
-  display:none;
-  background: rgba(255,255,255,0.18);
-  backdrop-filter: blur(14px);
-  border-radius:22px;
-  padding:20px;
-  margin-bottom:25px;
-}
+    .btn {
+      width: 100%;
+      padding: 14px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.option{
-  background:rgba(255,255,255,0.28);
-  border-radius:14px;
-  padding:14px;
-  margin-bottom:12px;
-  color:#000;
-}
+    .btn-main {
+      background: #1e90ff;
+      color: #fff;
+    }
 
-select,input{
-  width:100%;
-  padding:12px;
-  margin-top:8px;
-  border-radius:12px;
-  border:none;
-  font-size:15px;
-}
+    .btn-option {
+      background: #2f3542;
+      color: #fff;
+    }
 
-.total-box{
-  background:#fff;
-  color:#000;
-  border-radius:18px;
-  padding:16px;
-  font-size:18px;
-  font-weight:bold;
-  text-align:center;
-  margin-top:15px;
-}
+    .price-box {
+      display: none;
+      background: rgba(0,0,0,0.5);
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 10px;
+      text-align: center;
+    }
 
-button{
-  width:100%;
-  padding:14px;
-  border:none;
-  border-radius:18px;
-  margin-top:10px;
-  font-size:16px;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .order {
+      margin-top: 10px;
+      background: #00c853;
+      color: #000;
+    }
 
-.calc-btn{
-  background:#111;
-  color:#fff;
-}
-
-.order-btn{
-  background:#1877f2;
-  color:#fff;
-}
-
-.small{
-  font-size:14px;
-  opacity:.85;
-  text-align:center;
-}
-</style>
+    a {
+      text-decoration: none;
+    }
+  </style>
 </head>
-
 <body>
 
-<h1>🚀 SOCIAL MEDIA SERVICES</h1>
+  <div class="container">
+    <h1>🚀 FB Maker TOOL V1 RENTING</h1>
 
-<!-- FACEBOOK -->
-<div class="service-box" onclick="toggle('fb')">
-  📘 FACEBOOK SERVICES <span>▼</span>
-</div>
+    <div class="card">
+      <button class="btn btn-main" onclick="toggleOptions()">FB Maker TOOL V1 RENTING</button>
 
-<div class="details" id="fb">
-  <div class="option">
-    <b>Select Service</b>
-    <select id="fbService">
-      <option value="0">-- Select --</option>
-      <option value="34">Page Followers – ₱34 / 1000</option>
-      <option value="38">Profile Followers – ₱38 / 1000</option>
-      <option value="20">Share Post – ₱20 / 1000</option>
-      <option value="30">Reaction Any – ₱30 / 1000</option>
-      <option value="28">Reel Views – ₱28 / 1000</option>
-      <option value="30">Video Views – ₱30 / 1000</option>
-      <option value="40">Ghost Comments – ₱40 / 1000</option>
-      <option value="350">🇵🇭 PH Reaction – ₱350 / 1000</option>
-      <option value="60">🇵🇭 PH Share – ₱60 / 1000</option>
-      <option value="50" data-unit="10">🇵🇭 PH Custom Comment – ₱50 / 10</option>
-    </select>
+      <div id="options" style="display:none;">
+        <button class="btn btn-option" onclick="showPrice('price3')">3 Days</button>
+        <button class="btn btn-option" onclick="showPrice('price7')">7 Days ₱100</button>
+        <button class="btn btn-option" onclick="showPrice('price14')">2 Weeks ₱190</button>
+        <button class="btn btn-option" onclick="showPrice('price30')">1 Month ₱220</button>
+
+        <div id="price3" class="price-box">
+          ₱50 — 3 days renting tool price
+          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
+            <button class="btn order">ORDER NOW!!!</button>
+          </a>
+        </div>
+
+        <div id="price7" class="price-box">
+          ₱100 — 7 days renting tool
+          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
+            <button class="btn order">ORDER NOW!!!</button>
+          </a>
+        </div>
+
+        <div id="price14" class="price-box">
+          ₱190 — 2 weeks renting tool
+          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
+            <button class="btn order">ORDER NOW!!!</button>
+          </a>
+        </div>
+
+        <div id="price30" class="price-box">
+          ₱220 — 1 month renting tool
+          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
+            <button class="btn order">ORDER NOW!!!</button>
+          </a>
+        </div>
+
+      </div>
+    </div>
   </div>
 
-  <div class="option">
-    <b>Quantity</b>
-    <input type="number" id="fbQty" placeholder="Example: 1000 or 10">
-  </div>
+  <script>
+    function toggleOptions() {
+      const opt = document.getElementById("options");
+      opt.style.display = opt.style.display === "none" ? "block" : "none";
+    }
 
-  <button class="calc-btn" onclick="calculate('fb')">CALCULATE</button>
-  <div class="total-box" id="fbTotal">TOTAL: ₱0</div>
-
-  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
-</div>
-
-<!-- TIKTOK -->
-<div class="service-box" onclick="toggle('tt')">
-  🎵 TIKTOK SERVICES <span>▼</span>
-</div>
-
-<div class="details" id="tt">
-  <div class="option">
-    <b>Select Service</b>
-    <select id="ttService">
-      <option value="0">-- Select --</option>
-      <option value="170">Followers – ₱170 / 1000</option>
-      <option value="9">Views – ₱9 / 1000</option>
-      <option value="30">Likes – ₱30 / 1000</option>
-      <option value="35">Shares – ₱35 / 1000</option>
-    </select>
-  </div>
-
-  <div class="option">
-    <b>Quantity</b>
-    <input type="number" id="ttQty" placeholder="Example: 5000">
-  </div>
-
-  <button class="calc-btn" onclick="calculate('tt')">CALCULATE</button>
-  <div class="total-box" id="ttTotal">TOTAL: ₱0</div>
-
-  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
-</div>
-
-<!-- INSTAGRAM -->
-<div class="service-box" onclick="toggle('ig')">
-  📸 INSTAGRAM SERVICES <span>▼</span>
-</div>
-
-<div class="details" id="ig">
-  <div class="option">
-    <b>Select Service</b>
-    <select id="igService">
-      <option value="0">-- Select --</option>
-      <option value="150">Followers – ₱150 / 1000</option>
-      <option value="30">Likes – ₱30 / 1000</option>
-      <option value="29">Reel Views – ₱29 / 1000</option>
-    </select>
-  </div>
-
-  <div class="option">
-    <b>Quantity</b>
-    <input type="number" id="igQty">
-  </div>
-
-  <button class="calc-btn" onclick="calculate('ig')">CALCULATE</button>
-  <div class="total-box" id="igTotal">TOTAL: ₱0</div>
-
-  <button class="order-btn" onclick="orderNow()">ORDER VIA FACEBOOK</button>
-</div>
-
-<!-- THREADS -->
-<div class="service-box">
-  🧵 THREADS SERVICES
-</div>
-<div class="details" style="display:block">
-  <div class="total-box">COMING SOON</div>
-</div>
-
-<!-- TOOLS -->
-<div class="service-box">
-  🛠 TOOLS & RENT
-</div>
-<div class="details" style="display:block">
-  <div class="option small">
-    FB MAKER RENT<br>
-    3D ₱80 | 5D ₱100 | 10D ₱150 | 15D ₱180<br>
-    1 MONTH ₱230 | LIFETIME ₱300
-  </div>
-  <div class="option small">
-    MASS REPORT TOOL – LIFETIME ₱150
-  </div>
-</div>
-
-<script>
-function toggle(id){
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === "block" ? "none" : "block";
-}
-
-function calculate(type){
-  const service = document.getElementById(type+"Service");
-  const qty = Number(document.getElementById(type+"Qty").value);
-  const price = Number(service.value);
-
-  if(price === 0 || qty <= 0){
-    alert("Select service and enter quantity");
-    return;
-  }
-
-  let unit = service.options[service.selectedIndex].dataset.unit || 1000;
-  const total = (qty / unit) * price;
-
-  document.getElementById(type+"Total").innerText =
-    "TOTAL: ₱" + total.toLocaleString();
-}
-
-function orderNow(){
-  window.open(
-    "https://www.facebook.com/profile.php?id=61587276074494",
-    "_blank"
-  );
-}
-</script>
+    function showPrice(id) {
+      document.querySelectorAll(".price-box").forEach(box => {
+        box.style.display = "none";
+      });
+      document.getElementById(id).style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
