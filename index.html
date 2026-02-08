@@ -1,185 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FB Maker TOOL V1 RENTING</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>FB Maker TOOL V1 RENTING</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: radial-gradient(circle at top, #0b1d3a, #000);
-      color: #fff;
-    }
+<style>
+/* ===== BACKGROUND ANIMATION ===== */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(270deg, #0b1d3a, #0f2027, #2c5364);
+  background-size: 600% 600%;
+  animation: bgMove 15s ease infinite;
+  overflow-x: hidden;
+}
 
-    .container {
-      max-width: 420px;
-      margin: auto;
-      padding: 25px 15px;
-    }
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+/* floating particles */
+.particle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: rgba(0,229,255,0.7);
+  border-radius: 50%;
+  animation: floatUp 12s linear infinite;
+}
 
-    .card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    }
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
 
-    .btn {
-      width: 100%;
-      padding: 14px;
-      margin: 8px 0;
-      border: none;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+/* ===== LAYOUT ===== */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 25px 15px;
+  position: relative;
+  z-index: 2;
+}
 
-    .btn-main {
-      background: #1e90ff;
-      color: #fff;
-    }
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
 
-    .btn-option {
-      background: #2f3542;
-      color: #fff;
-    }
+.card {
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
 
-    .price-box {
-      display: none;
-      background: rgba(0,0,0,0.5);
-      padding: 15px;
-      border-radius: 14px;
-      margin-top: 12px;
-      text-align: center;
-      font-size: 15px;
-    }
+.btn {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .order {
-      margin-top: 12px;
-      background: #00c853;
-      color: #000;
-      font-size: 17px;
-    }
+.btn-main {
+  background: #1e90ff;
+  color: #fff;
+}
 
-    a {
-      text-decoration: none;
-    }
+.btn-option {
+  background: #2f3542;
+  color: #fff;
+}
 
-    /* 🔥 CLICK HERE ANIMATION */
-    @keyframes clickPulse {
-      0% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(30,144,255,0.7);
-      }
-      50% {
-        transform: scale(1.06);
-        box-shadow: 0 0 30px rgba(30,144,255,1);
-      }
-      100% {
-        transform: scale(1);
-        box-shadow: 0 0 0 rgba(30,144,255,0.7);
-      }
-    }
+.price-box {
+  display: none;
+  background: rgba(0,0,0,0.6);
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 12px;
+  text-align: center;
+  font-size: 15px;
+}
 
-    .click-here {
-      position: relative;
-      animation: clickPulse 1.5s infinite;
-    }
+.code-box {
+  margin-top: 10px;
+  padding: 10px;
+  background: #000;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #00e5ff;
+  word-break: break-all;
+}
 
-    .click-here::after {
-      content: "⬇ CLICK HERE ⬇";
-      position: absolute;
-      top: -36px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 14px;
-      color: #00e5ff;
-      animation: blink 1s infinite;
-    }
+.note {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 8px;
+}
 
-    @keyframes blink {
-      0% { opacity: 1; }
-      50% { opacity: 0.2; }
-      100% { opacity: 1; }
-    }
-  </style>
+.order {
+  margin-top: 12px;
+  background: #00c853;
+  color: #000;
+  font-size: 17px;
+}
+
+/* ===== CLICK HERE ANIMATION ===== */
+@keyframes clickPulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(30,144,255,0.7); }
+  50% { transform: scale(1.06); box-shadow: 0 0 30px rgba(30,144,255,1); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(30,144,255,0.7); }
+}
+
+.click-here {
+  position: relative;
+  animation: clickPulse 1.5s infinite;
+}
+
+.click-here::after {
+  content: "⬇ CLICK HERE ⬇";
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #00e5ff;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
-    <h1>🚀 FB Maker TOOL V1<br>RENTING</h1>
+<!-- PARTICLES -->
+<script>
+for(let i=0;i<20;i++){
+  const p=document.createElement("div");
+  p.className="particle";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDelay=Math.random()*10+"s";
+  p.style.opacity=Math.random();
+  document.body.appendChild(p);
+}
+</script>
 
-    <div class="card">
+<div class="container">
+<h1>🚀 FB Maker TOOL V1<br>RENTING</h1>
 
-      <!-- MAIN BUTTON -->
-      <button class="btn btn-main click-here" onclick="toggleOptions()">
-        FB Maker TOOL V1 RENTING
-      </button>
+<div class="card">
 
-      <!-- OPTIONS -->
-      <div id="options" style="display:none;">
+<button class="btn btn-main click-here" onclick="toggleOptions()">
+FB Maker TOOL V1 RENTING
+</button>
 
-        <button class="btn btn-option" onclick="showPrice('p3')">3 Days</button>
-        <button class="btn btn-option" onclick="showPrice('p7')">7 Days </button>
-        <button class="btn btn-option" onclick="showPrice('p14')">2 Weeks </button>
-        <button class="btn btn-option" onclick="showPrice('p30')">1 Month </button>
+<div id="options" style="display:none;">
 
-        <!-- PRICES -->
-        <div id="p3" class="price-box">
-          ₱50 — 3 days renting tool
-          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-            <button class="btn order">ORDER NOW!!!</button>
-          </a>
-        </div>
+<button class="btn btn-option" onclick="showPrice('3days',50)">3 Days</button>
+<button class="btn btn-option" onclick="showPrice('1week',100)">1 Week</button>
+<button class="btn btn-option" onclick="showPrice('2weeks',190)">2 Weeks</button>
+<button class="btn btn-option" onclick="showPrice('1month',220)">1 Month</button>
 
-        <div id="p7" class="price-box">
-          ₱100 — 7 days renting tool
-          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-            <button class="btn order">ORDER NOW!!!</button>
-          </a>
-        </div>
+<div id="priceBox" class="price-box"></div>
 
-        <div id="p14" class="price-box">
-          ₱190 — 2 weeks renting tool
-          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-            <button class="btn order">ORDER NOW!!!</button>
-          </a>
-        </div>
+</div>
+</div>
+</div>
 
-        <div id="p30" class="price-box">
-          ₱220 — 1 month renting tool
-          <a href="https://www.facebook.com/profile.php?id=61587276074494" target="_blank">
-            <button class="btn order">ORDER NOW!!!</button>
-          </a>
-        </div>
+<script>
+function toggleOptions(){
+  const opt=document.getElementById("options");
+  opt.style.display = opt.style.display==="none"?"block":"none";
+}
 
-      </div>
+function randomCode(){
+  return Math.random().toString(36).substring(2,10).toUpperCase();
+}
+
+function showPrice(type,price){
+  const code = `${type}-${randomCode()}`;
+  const box = document.getElementById("priceBox");
+
+  box.innerHTML = `
+    <div>₱${price} — ${type} renting tool</div>
+    <div class="code-box">${code}</div>
+    <div class="note">
+      Copy the code to redeem and Click order now send to the rightful owner to activate your tool
     </div>
-  </div>
+    <a href="https://www.facebook.com/Kristinemaeal" target="_blank">
+      <button class="btn order">ORDER NOW!!!</button>
+    </a>
+  `;
 
-  <script>
-    function toggleOptions() {
-      const opt = document.getElementById("options");
-      opt.style.display = opt.style.display === "none" ? "block" : "none";
-    }
-
-    function showPrice(id) {
-      document.querySelectorAll(".price-box").forEach(box => {
-        box.style.display = "none";
-      });
-      document.getElementById(id).style.display = "block";
-    }
-  </script>
+  box.style.display="block";
+}
+</script>
 
 </body>
 </html>
-
